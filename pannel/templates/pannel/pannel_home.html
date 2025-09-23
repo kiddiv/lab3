@@ -1,0 +1,23 @@
+{% extends 'facultet/layout.html' %}
+
+{% block title %}Список спеціальностей{% endblock %}
+
+{% block content %}
+<h1>Список спеціальностей</h1>
+
+{% if programs %}
+    <ul>
+    {% for program in programs %}
+        <li>
+            <a href="{% url 'program_detail' program.id %}"><strong>{{ program.title }}</strong></a> ({{ program.code }})<br>
+            Короткий опис: {{ program.get_short_description }}<br>
+            Координатор: {{ program.coordinator_name }}<br>
+            Контакт: 📧 {{ program.coordinator_contact_email }} | 📞 {{ program.coordinator_contact_phone }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Немає спеціальностей</p>
+{% endif %}
+
+{% endblock %}

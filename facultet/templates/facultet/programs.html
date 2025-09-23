@@ -1,0 +1,33 @@
+{% extends 'facultet/layout.html' %}
+
+{% block title %}Програми які пропонує університет{% endblock %}
+
+{% block content %}
+<div class="programs-container">
+    <h1>Спеціальності. </h1>
+    <p class="programs-intro">Ознайомтеся з усіма спеціальностями, які пропонує наш факультет. Клікніть на назву спеціальності для детальної інформації.</p>
+
+    <div class="programs-grid">
+        {% if programs %}
+            {% for program in programs %}
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3><a href="{% url 'program_detail' program.id %}" class="program-title">{{ program.title }}</a></h3>
+                        <span class="program-code">{{ program.code }}</span>
+                    </div>
+                    <p class="program-description">{{ program.get_short_description }}</p>
+                    <div class="coordinator-info">
+                        <h4>Координатор набору:</h4>
+                        <p><strong>{{ program.coordinator.full_name|default:"Не призначено" }}</strong></p>
+                        <p>📌 {{ program.coordinator.position|default:"Не вказано" }}</p>
+                        <p>🎓 {{ program.coordinator.degree|default:"Не вказано" }}</p>
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Немає спеціальностей</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<p><strong>Код спеціальності:</strong> {{ program.code }}</p>
+<p><strong>Кафедра:</strong> {{ program.department|default:"Не вказано" }}</p>
+<p><strong>Координатор:</strong> {{ program.coordinator.full_name|default:"Не призначено" }}</p>
+<p><strong>Контакт:</strong>
+  {% if program.coordinator %}
+    📧 {{ program.coordinator.email|default:"Не вказано" }}
+    📞 {{ program.coordinator.phone|default:"Не вказано" }}
+  {% else %}
+    Не вказано
+  {% endif %}
+</p>
+<p><strong>Опис:</strong> {{ program.description }}</p>
+
+{% if program.get_disciplines_list %}
+    <h3>Список дисциплін:</h3>
+    <ul>
+        {% for discipline in program.get_disciplines_list %}
+            <li>{{ discipline }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Не вказано</p>
+{% endif %}

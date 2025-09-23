@@ -1,0 +1,16 @@
+{% extends 'facultet/layout.html' %}
+
+{% block title %}{{ homepage.title }}{% endblock %}
+
+{% block content %}
+<section id="about">
+    <h1>{{ homepage.title }}</h1>
+    <p>{{ homepage.description }}</p>
+</section>
+
+<section id="contacts" class="contacts-section">
+    <h2>Контакти</h2>
+    <p>- Телефон: +380 123 456 789</p>
+    <p>- Email: example@university.ua</p>
+</section>
+{% endblock %}

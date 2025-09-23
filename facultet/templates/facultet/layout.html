@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {% block title %}{% endblock %}</title>
+    <link rel = "stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel ="stylesheet" href = "{% static 'facultet/css/facultet.css' %}">
+</head>
+<body>
+      <aside>
+       <img src="{% static 'facultet/img/logo.png' %}" alt="Logo">
+       <span class="logo">ФОЗ</span>
+        <h3>Navigation</h3>
+          <ul>
+              <a href="{% url 'main_page' %}"><li><i class="fa fa-notes-medical"></i>Main</li></a>
+              <a href="{% url 'program_page' %}"><li ><i class="fa fa-school"></i>Facultets</li></a>
+              <a href="{% url 'department_page' %}"><li><i class="fa fa-building"></i>Departments</li></a>
+             <a href="#contacts"><li><i class="fa fa-phone"></i>Contacts</li></a>
+
+          </ul>
+      </aside>
+      <main>
+          {% block content %}
+          {% endblock %}
+      </main>
+
+</body>
+</html>
