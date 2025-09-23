@@ -1,0 +1,26 @@
+[
+  {
+    "model": "pannel.departments",
+    "id": 1,
+    "fields": {
+      "name": "Кафедра комп’ютерних наук",
+      "head": "Іваненко Іван Іванович"
+    }
+  },
+  {
+    "model": "pannel.departments",
+    "id": 2,
+    "fields": {
+      "name": "Кафедра права",
+      "head": "Петренко Петро Петрович"
+    }
+  },
+  {
+    "model": "pannel.departments",
+    "id": 3,
+    "fields": {
+      "name": "Кафедра германської філології",
+      "head": "Шевченко Марія Олександрівна"
+    }
+  }
+]
